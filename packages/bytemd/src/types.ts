@@ -13,6 +13,7 @@ export interface BytemdLocale {
   preview: string
   writeOnly: string
   exitWriteOnly: string
+  darkMode: string
   previewOnly: string
   exitPreviewOnly: string
   help: string
@@ -153,6 +154,7 @@ export interface ToolbarContext {
   sidebar: string | boolean
   activeTab: string | boolean
   fullscreen: boolean
+  dark: boolean
   dispatch: Dispatch
 }
 
@@ -199,6 +201,18 @@ export interface EditorProps extends ViewerProps {
    * @defaultValue `auto`
    */
   mode?: 'split' | 'tab' | 'auto'
+  /**
+   * Editor dark theme
+   */
+  darkTheme?: string
+  /**
+   * Editor light theme
+   */
+  lightTheme?: string
+  /**
+   * Whether use dark mode
+   */
+  dark?: boolean
   /**
    * Debounce time (ms) for preview
    *

@@ -36,6 +36,28 @@ import { build } from 'vite'
     // build js
     const pkg = await fs.readJson(path.resolve(root, 'package.json'))
 
+    if (name === 'bytemd') {
+      await build({
+        root,
+        build: {
+          lib: {
+            entry: glob.sync('src/theme/*.scss'),
+            formats: ['es'],
+            fileName: '[name]',
+          },
+          outDir: 'dist/theme',
+          cssCodeSplit: true,
+        },
+        rollupOptions: {
+          output: {
+            assetFileNames: (assetInfo) => {
+              return assetInfo.name;
+            },
+          },
+        },
+      })
+    }
+
     for (let format of ['es', 'cjs', 'umd']) {
       const legacy = format === 'umd' || format === 'iife'
       const externalDeps = []

@@ -1,0 +1,20 @@
+@import 'codemirror/theme/nord.css';
+
+$background: #2e3440; // .CodeMirror
+$selection: #3b4252; // .CodeMirror-line::selection
+$text: #d8dee9; // span.cm-variable
+$cursor: #f8f8f0; // .CodeMirror-cursor
+$primary-color: #81a1c1; // span.cm-keyword
+$overlay-background: darken($background, 3%);
+$border-color: lighten($background, 10%);
+
+.bytemd-theme-nord {
+  --bytemd-bg-color: #{$background};
+  --bytemd-toolbar-bg-color: #{$overlay-background};
+  --bytemd-selection-color: #{$selection};
+  --bytemd-overlay-bg-color: #{$overlay-background};
+  --bytemd-text-color: #{$text};
+  --bytemd-border-color: #{$border-color};
+  --bytemd-primary-color: #{$primary-color};
+  --bytemd-cursor-color: #{$cursor};
+}

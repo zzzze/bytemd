@@ -3,12 +3,24 @@
 @import 'tippy.js/themes/light-border.css';
 @import '@primer/css/support/variables/color-system.scss';
 
-$border-color: $gray-200;
-$primary: $blue;
 $sidebar-width: 280px;
 $max-width: 800px;
 
+:root {
+  --bytemd-bg-color: #{$white};
+  --bytemd-toolbar-bg-color: #{$gray-000};
+  --bytemd-selection-color: #{$gray-100};
+  --bytemd-overlay-bg-color: #{$white};
+  --bytemd-text-color: #{$gray-900};
+  --bytemd-border-color: #{$gray-200};
+  --bytemd-primary-color: #{$blue};
+  --bytemd-cursor-color: #5c5855;
+}
+
 .bytemd {
+  --bytemd-tooltip-bg-color: var(--bytemd-text-color);
+  --bytemd-tooltip-text-color: var(--bytemd-bg-color);
+
   // reset
   box-sizing: border-box;
   * {
@@ -26,12 +38,15 @@ $max-width: 800px;
   .CodeMirror-linenumber {
     box-sizing: content-box;
   }
+  .CodeMirror-cursor {
+    background-color: var(--bytemd-cursor-color);
+  }
 
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  color: $gray-900;
-  border: 1px solid $border-color;
-  background-color: $white;
+  color: var(--bytemd-text-color);
+  border: 1px solid var(--bytemd-border-color);
+  background-color: var(--bytemd-bg-color);
   height: 300px;
 
   .CodeMirror,
@@ -40,10 +55,14 @@ $max-width: 800px;
     font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   }
 
+  &-tooltip-content {
+    padding: 5px 9px;
+  }
+
   &-toolbar {
     padding: 4px 12px;
-    border-bottom: 1px solid $border-color;
-    background-color: $gray-000;
+    border-bottom: 1px solid var(--bytemd-border-color);
+    background-color: var(--bytemd-toolbar-bg-color);
     user-select: none;
     overflow: hidden;
 
@@ -63,7 +82,7 @@ $max-width: 800px;
       line-height: 24px;
       font-size: 14px;
       &-active {
-        color: $primary;
+        color: var(--bytemd-primary-color);
       }
     }
 
@@ -82,16 +101,43 @@ $max-width: 800px;
         height: 24px;
       }
       &:hover {
-        background-color: $border-color;
+        background-color: var(--bytemd-border-color);
       }
       &-active {
         color: $blue-500;
       }
     }
 
+    .tippy-box {
+      font-size: 12px;
+    }
+
+    .tippy-box[data-theme~='bytemd-tooltip'] {
+      background-color: var(--bytemd-tooltip-bg-color);
+      color: var(--bytemd-tooltip-text-color);
+    }
+
+    .tippy-box[data-theme~='bytemd-tooltip'][data-placement^='top'] > .tippy-arrow::before {
+      border-top-color: var(--bytemd-tooltip-bg-color);
+    }
+    .tippy-box[data-theme~='bytemd-tooltip'][data-placement^='bottom'] > .tippy-arrow::before {
+      border-bottom-color: var(--bytemd-tooltip-bg-color);
+    }
+    .tippy-box[data-theme~='bytemd-tooltip'][data-placement^='left'] > .tippy-arrow::before {
+      border-left-color: var(--bytemd-tooltip-bg-color);
+    }
+    .tippy-box[data-theme~='bytemd-tooltip'][data-placement^='right'] > .tippy-arrow::before {
+      border-right-color: var(--bytemd-tooltip-bg-color);
+    }
+
+    .tippy-box[data-theme~='bytemd-dropdown-menu'] {
+      background-color: var(--bytemd-overlay-bg-color);
+      color: var(--bytemd-text-color);
+      border: 1px solid var(--bytemd-border-color);
+    }
+
     .tippy-content {
-      padding-left: 0;
-      padding-right: 0;
+      padding: 0;
     }
   }
 
@@ -102,16 +148,16 @@ $max-width: 800px;
     &-title {
       margin: 0 12px;
       font-weight: 500;
-      border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid var(--bytemd-border-color);
       line-height: 32px;
-      color: $gray-700;
+      color: var(--bytemd-text-color);
     }
     &-item {
       padding: 4px 12px;
       height: 32px;
       cursor: pointer;
       &:hover {
-        background-color: $gray-100;
+        background-color: var(--bytemd-selection-color);
       }
 
       &-icon {
@@ -178,7 +224,7 @@ $max-width: 800px;
     height: 100%;
     overflow: auto;
     font-size: 16px;
-    border-left: 1px solid $border-color;
+    border-left: 1px solid var(--bytemd-border-color);
     width: $sidebar-width;
     position: relative;
     padding: 0 16px;
@@ -189,7 +235,7 @@ $max-width: 800px;
       right: 0;
       cursor: pointer;
       &:hover {
-        color: $primary;
+        color: var(--bytemd-primary-color);
       }
     }
     h2 {
@@ -245,7 +291,7 @@ $max-width: 800px;
       white-space: nowrap;
     }
     &-active {
-      color: $primary;
+      color: var(--bytemd-primary-color);
       background-color: $gray-100;
     }
     &-first {
@@ -256,7 +302,7 @@ $max-width: 800px;
   &-status {
     font-size: 12px;
     line-height: 24px;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid var(--bytemd-border-color);
     user-select: none;
     &-left {
       float: left;
@@ -275,7 +321,7 @@ $max-width: 800px;
         cursor: pointer;
       }
       span:hover {
-        color: $primary;
+        color: var(--bytemd-primary-color);
       }
       input {
         vertical-align: middle;
@@ -301,11 +347,7 @@ $max-width: 800px;
 
   &-split {
     .bytemd-preview {
-      border-left: 1px solid $border-color;
+      border-left: 1px solid var(--bytemd-border-color);
     }
   }
-}
-
-.tippy-box {
-  font-size: 12px;
 }

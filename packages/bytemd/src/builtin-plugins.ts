@@ -1,5 +1,5 @@
-import en from './locales/en.json'
 import { icons } from './icons'
+import en from './locales/en.json'
 import type {
   BytemdPlugin,
   BytemdLocale,
@@ -40,6 +40,10 @@ export async function handleImageUpload(
   )
   editor.setSelection(pos, codemirror.Pos(pos.line + images.length * 2 - 2))
   editor.focus()
+}
+
+export interface IconOptions {
+  icon?: string
 }
 
 export interface HeadIconOptions {
@@ -546,6 +550,34 @@ export function source({
           click() {
             window.open('https://github.com/bytedance/bytemd')
           },
+        },
+      },
+    ],
+  }
+}
+
+export function darkMode({
+  locale: _locale,
+  icon,
+  position,
+}: BytemdBuiltinPluginOptions & IconOptions = {}): BytemdPlugin {
+  const locale = { ...en, ..._locale } as BytemdLocale
+  return {
+    actions: [
+      {
+        position: position ?? ActionPosition.RIGHT,
+        create({ dispatch, dark }) {
+          return {
+            title: locale.darkMode,
+            icon: icon ?? icons.DarkMode,
+            handler: {
+              type: 'action',
+              click() {
+                dispatch('click', 'dark')
+              },
+            },
+            active: dark,
+          }
         },
       },
     ],

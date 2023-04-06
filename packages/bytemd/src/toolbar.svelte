@@ -21,6 +21,7 @@
   export let split: boolean
   export let activeTab: false | 'write' | 'preview'
   export let fullscreen: boolean
+  export let dark: boolean
   export let sidebar: false | 'help' | 'toc'
   export let locale: BytemdLocale
   export let editor: Editor
@@ -40,7 +41,7 @@
         actions.push(action)
       } else {
         actions.push({
-          ...action.create({ dispatch, sidebar, split, activeTab, fullscreen }),
+          ...action.create({ dispatch, sidebar, split, activeTab, fullscreen, dark }),
           position: action.position,
         })
       }
@@ -54,7 +55,7 @@
         actions.push(action)
       } else {
         actions.push({
-          ...action.create({ dispatch, sidebar, split, activeTab, fullscreen }),
+          ...action.create({ dispatch, sidebar, split, activeTab, fullscreen, dark }),
           position: action.position,
         })
       }
@@ -136,8 +137,14 @@
         if (!handler) return
 
         if (handler.type === 'action') {
+          const tooltipContent = document.createElement('div')
+          tooltipContent.classList.add('bytemd-tooltip-content')
+          tooltipContent.innerHTML = item.title ?? ''
           setProps({
-            content: item.title,
+            appendTo: toolbar,
+            allowHTML: true,
+            theme: 'bytemd-tooltip',
+            content: tooltipContent.outerHTML,
             onHidden(ins) {
               ins.destroy()
             },
@@ -174,9 +181,10 @@
           })
 
           setProps({
+            appendTo: toolbar,
             allowHTML: true,
             showOnCreate: true,
-            theme: 'light-border',
+            theme: 'bytemd-dropdown-menu',
             placement: 'bottom-start',
             interactive: true,
             interactiveDebounce: 50,

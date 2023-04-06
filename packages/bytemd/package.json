@@ -22,6 +22,7 @@
     },
     "./locales/*": "./locales/*",
     "./lib/locales/*": "./locales/*",
+    "./dist/theme/*": "./dist/theme/*",
     "./dist/index.css": "./dist/index.css",
     "./dist/index.min.css": "./dist/index.min.css"
   },
@@ -58,6 +59,7 @@
     "word-count": "^0.2.2"
   },
   "devDependencies": {
-    "@primer/css": "^15.2.0"
+    "@primer/css": "^15.2.0",
+    "codemirror": "^5.65.12"
   }
 }

@@ -1,0 +1,20 @@
+@import 'codemirror/theme/blackboard.css';
+
+$background: #0C1021; // .CodeMirror
+$selection: rgba(37, 59, 118, .99); // .CodeMirror-line::selection
+$text: #F8F8F8; // span.cm-variable
+$cursor: #A7A7A7; // .CodeMirror-cursor
+$primary-color: #FBDE2D; // span.cm-keyword
+$overlay-background: darken($background, 3%);
+$border-color: lighten($background, 10%);
+
+.bytemd-theme-blackboard {
+  --bytemd-bg-color: #{$background};
+  --bytemd-toolbar-bg-color: #{$overlay-background};
+  --bytemd-selection-color: #{$selection};
+  --bytemd-overlay-bg-color: #{$overlay-background};
+  --bytemd-text-color: #{$text};
+  --bytemd-border-color: #{$border-color};
+  --bytemd-primary-color: #{$primary-color};
+  --bytemd-cursor-color: #{$cursor};
+}

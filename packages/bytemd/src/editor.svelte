@@ -2,13 +2,13 @@
 
 <script lang="ts">
   import en from '../locales/en.json'
+  import { handleImageUpload } from './builtin-plugins'
   import {
     createCodeMirror,
     createEditorUtils,
     findStartIndex,
     getActions,
   } from './editor'
-  import { handleImageUpload } from './builtin-plugins'
   import Help from './help.svelte'
   import { icons } from './icons'
   import Status from './status.svelte'
@@ -31,6 +31,9 @@
   export let sanitize: Props['sanitize'] = undefined
   export let remarkRehype: Props['remarkRehype'] = undefined
   export let mode: NonNullable<Props['mode']> = 'auto'
+  export let dark: Props['dark'] = false
+  export let darkTheme: Props['darkTheme'] = undefined
+  export let lightTheme: Props['lightTheme'] = undefined
   export let previewDebounce: NonNullable<Props['previewDebounce']> = 300
   export let placeholder: Props['placeholder'] = undefined
   export let editorConfig: Props['editorConfig'] = undefined
@@ -39,8 +42,14 @@
   export let overridePreview: Props['overridePreview'] = undefined
   export let maxLength: NonNullable<Props['maxLength']> = Infinity
 
+  $: theme = (dark ? darkTheme : lightTheme) ?? 'default'
+  $: containerClassName = [`bytemd-theme-${theme}`, 'bytemd'].join(' ')
   $: mergedLocale = { ...en, ...locale }
-  const dispatch = createEventDispatcher<{ change: { value: string } }>()
+  const dispatch = createEventDispatcher<{ change: { value: string }, darkmodechange: { value: boolean } }>()
+  function toggleDarkMode(state: boolean) {
+    dispatch('darkmodechange', { value: state })
+    dark = state
+  }
 
   $: actions = getActions(plugins)
   $: split = mode === 'split' || (mode === 'auto' && containerWidth >= 800)
@@ -132,6 +141,10 @@
     })
   }
 
+  $: if (editor && theme !== editor.getOption('theme')) {
+    editor.setOption('theme', theme)
+  }
+
   // Scroll sync vars
   let syncEnabled = true
   let editCalled = false
@@ -154,6 +167,7 @@
       extraKeys: {
         Enter: 'newlineAndIndentContinueMarkdownList',
       }, // https://github.com/codemirror/CodeMirror/blob/c955a0fb02d9a09cf98b775cb94589e4980303c1/mode/markdown/index.html#L359
+      theme,
       ...editorConfig,
       placeholder,
     })
@@ -324,7 +338,7 @@
 </script>
 
 <div
-  class="bytemd"
+  class={containerClassName}
   class:bytemd-split={split && activeTab === false}
   class:bytemd-fullscreen={fullscreen}
   bind:this={root}
@@ -335,6 +349,7 @@
     {activeTab}
     {sidebar}
     {fullscreen}
+    {dark}
     {editor}
     {plugins}
     locale={mergedLocale}
@@ -368,6 +383,9 @@
       switch (e.detail) {
         case 'fullscreen':
           fullscreen = !fullscreen
+          break
+        case 'dark':
+          toggleDarkMode(!dark)
           break
         case 'help':
           sidebar = sidebar === 'help' ? false : 'help'

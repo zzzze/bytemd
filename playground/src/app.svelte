@@ -8,12 +8,20 @@
   import math from '@bytemd/plugin-math'
   import mediumZoom from '@bytemd/plugin-medium-zoom'
   import mermaid from '@bytemd/plugin-mermaid'
-  import { Editor } from 'bytemd'
+  import { Editor, builtInPlugins } from 'bytemd'
+  import type { BytemdEditorAPI } from 'bytemd'
   import 'bytemd/dist/index.css'
-  import 'github-markdown-css'
+  import 'bytemd/dist/theme/nord.css'
+  import 'bytemd/dist/theme/abcdef.css'
+  import 'bytemd/dist/theme/blackboard.css'
+  import 'bytemd/dist/theme/moxer.css'
+  import 'bytemd/dist/theme/tomorrow-night-eighties.css'
   import 'highlight.js/styles/vs.css'
   // placed after highlight styles to override `code` padding
   import 'katex/dist/katex.css'
+  import { createEventDispatcher } from 'svelte'
+
+  const dispatch = createEventDispatcher<{ ready: BytemdEditorAPI }>()
 
   function stripPrefixes(obj: Record<string, any>) {
     return Object.entries(obj).reduce((p, [key, value]) => {
@@ -22,6 +30,14 @@
       return p
     }, {} as Record<string, any>)
   }
+
+  let dark = false
+  const useDark = window.matchMedia("(prefers-color-scheme: dark)")
+  function toggleDarkMode(state: boolean) {
+    dark = state
+  }
+  toggleDarkMode(localStorage.getItem("dark-mode") == "true")
+  useDark.addListener((evt) => toggleDarkMode(evt.matches))
 
   const locales = stripPrefixes(
     import.meta.glob('/node_modules/bytemd/locales/*.json', { eager: true })
@@ -44,8 +60,10 @@
 
   let value = markdownText
   let mode = 'auto'
+  let darkTheme = 'nord'
   let localeKey = 'en'
   let maxLength: number
+  let darkThemes = ['nord', 'abcdef', 'blackboard', 'moxer', 'tomorrow-night-eighties']
 
   let enabled = {
     breaks: false,
@@ -59,6 +77,17 @@
   }
 
   $: plugins = [
+    builtInPlugins.head(),
+    builtInPlugins.bold(),
+    builtInPlugins.italic(),
+    builtInPlugins.quote(),
+    builtInPlugins.link(),
+    builtInPlugins.code(),
+    builtInPlugins.codeBlock(),
+    builtInPlugins.ul(),
+    builtInPlugins.ol(),
+    builtInPlugins.hr({ position: 'right' }),
+
     enabled.breaks && breaks(),
     enabled.frontmatter && frontmatter(),
     enabled.gemoji && gemoji(),
@@ -77,15 +106,37 @@
       mermaid({
         locale: mermaidLocales[localeKey],
       }),
+
+    builtInPlugins.source(),
+    builtInPlugins.fullscreen({ position: 'left' }),
+    builtInPlugins.darkMode(),
+    builtInPlugins.preview(),
+    builtInPlugins.write(),
+    builtInPlugins.help(),
+    builtInPlugins.toc(),
   ].filter((x) => x)
 </script>
 
 <div class="container">
+  {#if dark}
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css" />
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css" />
+  {:else}
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css" />
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/styles/vs.min.css" />
+  {/if}
+
   <div class="line">
     Mode:
     {#each ['auto', 'split', 'tab'] as m}
       <label> <input type="radio" bind:group={mode} value={m} />{m}</label>
     {/each}
+    , Dark theme:
+    <select bind:value={darkTheme}>
+      {#each darkThemes as t}
+        <option value={t}>{t}</option>
+      {/each}
+    </select>
     , Locale:
     <select bind:value={localeKey}>
       {#each Object.keys(locales) as l}
@@ -108,6 +159,8 @@
     {mode}
     {plugins}
     {maxLength}
+    darkTheme={darkTheme}
+    {dark}
     placeholder={'Start writing with ByteMD'}
     locale={locales[localeKey]}
     uploadImages={(files) => {
@@ -122,6 +175,9 @@
     }}
     on:change={(e) => {
       value = e.detail.value
+    }}
+    on:darkmodechange={(e) => {
+      toggleDarkMode(e.detail.value)
     }}
   />
 </div>

@@ -1,0 +1,20 @@
+@import 'codemirror/theme/abcdef.css';
+
+$background: #0f0f0f; // .CodeMirror
+$selection: rgba(56, 56, 56, 0.99); // .CodeMirror-line::selection
+$text: #def; // span.cm-variable
+$cursor: #00FF00; // .CodeMirror-cursor
+$primary-color: #b8860b; // span.cm-keyword
+$overlay-background: darken($background, 3%);
+$border-color: lighten($background, 10%);
+
+.bytemd-theme-abcdef {
+  --bytemd-bg-color: #{$background};
+  --bytemd-toolbar-bg-color: #{$overlay-background};
+  --bytemd-selection-color: #{$selection};
+  --bytemd-overlay-bg-color: #{$overlay-background};
+  --bytemd-text-color: #{$text};
+  --bytemd-border-color: #{$border-color};
+  --bytemd-primary-color: #{$primary-color};
+  --bytemd-cursor-color: #{$cursor};
+}

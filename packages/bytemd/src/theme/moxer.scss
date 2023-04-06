@@ -1,0 +1,20 @@
+@import 'codemirror/theme/moxer.css';
+
+$background: #090A0F; // .CodeMirror
+$selection: #212431; // .CodeMirror-line::selection
+$text: #C4C4C4;
+$cursor: #FFCC00; // .CodeMirror-cursor
+$primary-color: #D46C6C; // span.cm-keyword
+$overlay-background: lighten($background, 10%);
+$border-color: lighten($background, 10%);
+
+.bytemd-theme-moxer {
+  --bytemd-bg-color: #{$background};
+  --bytemd-toolbar-bg-color: #{$overlay-background};
+  --bytemd-selection-color: #{$selection};
+  --bytemd-overlay-bg-color: #{$overlay-background};
+  --bytemd-text-color: #{$text};
+  --bytemd-border-color: #{$border-color};
+  --bytemd-primary-color: #{$primary-color};
+  --bytemd-cursor-color: #{$cursor};
+}

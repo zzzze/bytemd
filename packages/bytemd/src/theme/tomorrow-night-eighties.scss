@@ -1,0 +1,20 @@
+@import 'codemirror/theme/tomorrow-night-eighties.css';
+
+$background: #000000; // .CodeMirror
+$selection: rgba(45, 45, 45, 0.99); // .CodeMirror-line::selection
+$text: #C4C4C4;
+$cursor: #6A6A6A; // .CodeMirror-cursor
+$primary-color: #f2777a; // span.cm-keyword
+$overlay-background: lighten($background, 10%);
+$border-color: lighten($background, 10%);
+
+.bytemd-theme-tomorrow-night-eighties {
+  --bytemd-bg-color: #{$background};
+  --bytemd-toolbar-bg-color: #{$overlay-background};
+  --bytemd-selection-color: #{$selection};
+  --bytemd-overlay-bg-color: #{$overlay-background};
+  --bytemd-text-color: #{$text};
+  --bytemd-border-color: #{$border-color};
+  --bytemd-primary-color: #{$primary-color};
+  --bytemd-cursor-color: #{$cursor};
+}

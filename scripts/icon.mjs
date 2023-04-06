@@ -34,6 +34,7 @@ const meta = {
     'OffScreen',
     'FullScreen',
     'GithubOne',
+    'DarkMode'
   ],
   'plugin-gfm/src': ['Strikethrough', 'CheckCorrect', 'InsertTable'],
   'plugin-math/src/utils': ['Formula', 'Inline', 'Block'],

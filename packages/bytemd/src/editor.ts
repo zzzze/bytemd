@@ -1,8 +1,4 @@
-import type {
-  BytemdPlugin,
-  BytemdAction,
-  BytemdActionFactory,
-} from './types'
+import type { BytemdPlugin, BytemdAction, BytemdActionFactory } from './types'
 import type { Editor, Position } from 'codemirror'
 import type CodeMirror from 'codemirror'
 import factory from 'codemirror-ssr'
