@@ -13,6 +13,8 @@
   import { createEventDispatcher, onMount, tick } from 'svelte'
   import type { DelegateInstance } from 'tippy.js'
   import { delegate } from 'tippy.js'
+  import Control from './control.svelte';
+  import { icons } from './icons';
 
   const dispatch = createEventDispatcher()
   let toolbar: HTMLElement
@@ -35,7 +37,7 @@
   }
 
   $: actions = getActions(plugins)
-  $: leftActions = [
+  $: _leftActions = [
     ...actions.leftActions.reduce<BytemdAction[]>((actions, action) => {
       if (!isActionFactory(action)) {
         actions.push(action)
@@ -48,6 +50,14 @@
       return actions
     }, []),
   ]
+
+  $: leftActions = _leftActions.length === 0 ? _leftActions : _leftActions.concat({
+    icon: icons.ApplicationMenu,
+    handler: {
+      type: 'dropdown',
+      actions: _leftActions,
+    }
+  } as BytemdAction)
 
   $: rightActions = [
     ...actions.rightActions.reduce<BytemdAction[]>((actions, action) => {
@@ -164,7 +174,11 @@
           if (item.title) {
             const dropdownTitle = document.createElement('div')
             dropdownTitle.classList.add('bytemd-dropdown-title')
-            dropdownTitle.appendChild(document.createTextNode(item.title))
+            dropdownTitle.innerHTML = `${
+              item.icon
+                ? `<div class="bytemd-dropdown-item-icon">${item.icon}</div>`
+                : ''
+            }<div class="bytemd-dropdown-item-title">${item.title}</div>`
             dropdown.appendChild(dropdownTitle)
           }
 
@@ -183,19 +197,23 @@
               subAction.icon
                 ? `<div class="bytemd-dropdown-item-icon">${subAction.icon}</div>`
                 : ''
-            }<div class="bytemd-dropdown-item-title">${subAction.title}</div>`
+            }<div class="bytemd-dropdown-item-title">${subAction.title}</div>${
+              subAction.handler?.type === 'dropdown'
+                ? `<div class="bytemd-dropdown-item-icon bytemd-dropdown-item-icon-right-arrow">${icons.Right}</div>`
+                : ''
+            }`
             dropdown.appendChild(dropdownItem)
           })
 
           setProps({
-            appendTo: toolbar,
+            appendTo: paths.length > 1 ? 'parent' : toolbar,
             allowHTML: true,
             showOnCreate: true,
             theme: 'bytemd-dropdown-menu',
-            placement: 'bottom-start',
+            placement: paths.length > 1 ? 'right-end' : 'bottom-start',
             interactive: true,
-            interactiveDebounce: 50,
-            arrow: false,
+            interactiveDebounce: paths.length > 1 ? 0 : 50,
+            arrow: true,
             offset: [0, 4],
             content: dropdown.outerHTML,
             onHidden(ins) {
@@ -252,14 +270,12 @@
   <div class="bytemd-toolbar-left">
     {#if split}
       {#each leftActions as item, index}
-        {#if item.handler && !item.hidden}
-          <div
-            class={['bytemd-toolbar-icon', tippyClass].join(' ')}
-            class:bytemd-toolbar-icon-active={item.active}
-            bytemd-tippy-path={index}
-          >
-            {@html item.icon}
-          </div>
+        {#if index < leftActions.length - 1}
+          <Control
+            action={item}
+            index={index}
+            classNames={[tippyClass]}
+          />
         {/if}
       {/each}
     {:else}
@@ -281,20 +297,23 @@
       >
         {locale.preview}
       </div>
+      {#if leftActions.length}
+        <Control
+          action={leftActions[leftActions.length - 1]}
+          index={leftActions.length - 1}
+          classNames={[tippyClass]}
+        />
+      {/if}
     {/if}
   </div>
 
   <div class="bytemd-toolbar-right">
     {#each rightActions as item, index}
-      {#if item.handler && !item.hidden}
-        <div
-          class={['bytemd-toolbar-icon', tippyClass, tippyClassRight].join(' ')}
-          class:bytemd-toolbar-icon-active={item.active}
-          bytemd-tippy-path={index}
-        >
-          {@html item.icon}
-        </div>
-      {/if}
+      <Control
+        action={item}
+        index={index}
+        classNames={[tippyClass, tippyClassRight]}
+      />
     {/each}
   </div>
 </div>

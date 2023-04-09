@@ -136,6 +136,50 @@ $max-width: 800px;
       border: 1px solid var(--bytemd-border-color);
     }
 
+    .tippy-box[data-theme~='bytemd-dropdown-menu'][data-placement^='top'] > .tippy-arrow::before {
+      border-top-color: var(--bytemd-overlay-bg-color);
+    }
+    .tippy-box[data-theme~='bytemd-dropdown-menu'][data-placement^='bottom'] > .tippy-arrow::before {
+      border-bottom-color: var(--bytemd-overlay-bg-color);
+    }
+    .tippy-box[data-theme~='bytemd-dropdown-menu'][data-placement^='left'] > .tippy-arrow::before {
+      border-left-color: var(--bytemd-overlay-bg-color);
+    }
+    .tippy-box[data-theme~='bytemd-dropdown-menu'][data-placement^='right'] > .tippy-arrow::before {
+      border-right-color: var(--bytemd-overlay-bg-color);
+    }
+    .tippy-box[data-theme~='bytemd-dropdown-menu'] > .tippy-arrow::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-color: transparent;
+      border-style: solid;
+    }
+    .tippy-box[data-theme~='bytemd-dropdown-menu'][data-placement^='top'] > .tippy-arrow::after {
+      border-top-color: var(--bytemd-border-color);
+      border-width: 7px 7px 0;
+      top: 17px;
+      left: 1px;
+    }
+    .tippy-box[data-theme~='bytemd-dropdown-menu'][data-placement^='bottom'] > .tippy-arrow::after {
+      border-bottom-color: var(--bytemd-border-color);
+      border-width: 0 7px 7px;
+      bottom: 17px;
+      left: 1px;
+    }
+    .tippy-box[data-theme~='bytemd-dropdown-menu'][data-placement^='left'] > .tippy-arrow::after {
+      border-left-color: var(--bytemd-border-color);
+      border-width: 7px 0 7px 7px;
+      left: 17px;
+      top: 1px;
+    }
+    .tippy-box[data-theme~='bytemd-dropdown-menu'][data-placement^='right'] > .tippy-arrow::after {
+      border-right-color: var(--bytemd-border-color);
+      border-width: 7px 7px 7px 0;
+      right: 17px;
+      top: 1px;
+    }
+
     .tippy-content {
       padding: 0;
     }
@@ -151,28 +195,39 @@ $max-width: 800px;
       border-bottom: 1px solid var(--bytemd-border-color);
       line-height: 32px;
       color: var(--bytemd-text-color);
+      white-space: nowrap;
     }
     &-item {
+      display: flex;
       padding: 4px 12px;
       height: 32px;
       cursor: pointer;
+      white-space: nowrap;
       &:hover {
         background-color: var(--bytemd-selection-color);
       }
 
       &-icon {
         display: inline-block;
+        vertical-align: middle;
         svg {
           display: block;
           padding: 4px;
           width: 24px;
           height: 24px;
         }
+
+        &-right-arrow {
+          opacity: 0.3;
+          margin-left: 6px;
+          width: 16px;
+        }
       }
       &-title {
         display: inline-block;
         line-height: 24px;
-        vertical-align: top;
+        margin-right: auto;
+        vertical-align: middle;
       }
     }
   }

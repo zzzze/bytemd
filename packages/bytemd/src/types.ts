@@ -36,6 +36,7 @@ export interface BytemdLocale {
   h4: string
   h5: string
   h6: string
+  headingTitle: string
   headingText: string
   bold: string
   boldText: string

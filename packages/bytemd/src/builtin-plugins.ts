@@ -68,6 +68,7 @@ export function head({
   return {
     actions: [
       {
+        title: locale.headingTitle,
         icon: icon?.h ?? icons.H,
         position: position ?? ActionPosition.LEFT,
         handler: {

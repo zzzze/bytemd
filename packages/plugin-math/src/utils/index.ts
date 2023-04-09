@@ -2,6 +2,7 @@ import { icons } from './icons'
 import type { BytemdAction } from 'bytemd'
 
 export type MathLocale = {
+  title: string
   inline: string
   inlineText: string
   block: string
@@ -12,6 +13,7 @@ export function getMathActions(locale: MathLocale): BytemdAction[] {
   return [
     {
       icon: icons.Formula,
+      title: locale.title,
       handler: {
         type: 'dropdown',
         actions: [
