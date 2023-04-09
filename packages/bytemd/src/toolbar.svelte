@@ -65,14 +65,21 @@
 
   function on() {
     keyMap = {}
-    // TODO: nested shortcuts
-    ;[...leftActions, ...rightActions].forEach(({ handler }) => {
-      if (handler?.type === 'action' && handler.shortcut) {
-        keyMap[handler.shortcut] = () => {
-          handler.click(context)
+    const actions = [...leftActions, ...rightActions]
+    while (actions.length) {
+      const action = actions.shift()
+      if (action?.handler?.type === 'dropdown') {
+        actions.unshift(...action.handler.actions)
+      } else if (action?.handler?.type === 'action') {
+        const { shortcut } = action.handler
+        if (shortcut) {
+          const { handler } = action
+          keyMap[shortcut] = () => {
+            handler.click(context)
+          }
         }
       }
-    })
+    }
     editor.addKeyMap(keyMap)
   }
   function off() {

@@ -88,6 +88,7 @@ export function head({
                 : undefined,
             handler: {
               type: 'action',
+              shortcut: getShortcutWithPrefix(`${level}`),
               click({ replaceLines, editor }) {
                 replaceLines((line) => {
                   line = line.trim().replace(/^#*/, '').trim()
