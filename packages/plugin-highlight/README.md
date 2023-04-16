@@ -1,14 +1,14 @@
-# @bytemd/plugin-highlight
+# @flicmd/bytemd-plugin-highlight
 
-[![npm](https://img.shields.io/npm/v/@bytemd/plugin-highlight.svg)](https://npm.im/@bytemd/plugin-highlight)
+[![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-highlight.svg)](https://npm.im/@flicmd/bytemd-plugin-highlight)
 
 ByteMD plugin to highlight code blocks
 
 ## Usage
 
 ```js
-import highlight from '@bytemd/plugin-highlight'
-import { Editor } from 'bytemd'
+import { Editor } from '@flicmd/bytemd'
+import highlight from '@flicmd/bytemd-plugin-highlight'
 import 'highlight.js/styles/default.css'
 
 new Editor({

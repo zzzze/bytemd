@@ -1,6 +1,6 @@
 {
-  "name": "bytemd",
-  "version": "1.21.0",
+  "name": "@flicmd/bytemd",
+  "version": "1.21.1",
   "description": "Hackable Markdown Editor and Viewer",
   "keywords": [
     "markdown",
@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/bytemd.git",
+    "url": "https://github.com/zzzze/bytemd.git",
     "directory": "packages/bytemd"
   },
   "license": "MIT",
@@ -22,7 +22,6 @@
     },
     "./locales/*": "./locales/*",
     "./lib/locales/*": "./locales/*",
-    "./dist/theme/*": "./dist/theme/*",
     "./dist/index.css": "./dist/index.css",
     "./dist/index.min.css": "./dist/index.min.css"
   },

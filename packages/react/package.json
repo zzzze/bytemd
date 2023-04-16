@@ -1,10 +1,10 @@
 {
-  "name": "@bytemd/react",
-  "version": "1.21.0",
+  "name": "@flicmd/bytemd-react",
+  "version": "1.21.1",
   "description": "Hackable Markdown Editor and Viewer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/bytemd.git",
+    "url": "https://github.com/zzzze/bytemd.git",
     "directory": "packages/react"
   },
   "license": "MIT",
@@ -28,7 +28,7 @@
     "locales"
   ],
   "dependencies": {
-    "bytemd": "workspace:*"
+    "@flicmd/bytemd": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.0.31",

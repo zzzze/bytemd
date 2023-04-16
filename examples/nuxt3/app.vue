@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Editor } from '@bytemd/vue-next'
-import gfm from '@bytemd/plugin-gfm'
+import { Editor } from '@flicmd/bytemd-vue-next'
+import gfm from '@flicmd/bytemd-plugin-gfm'
 
 const content = ref('')
 const plugins = [gfm()]

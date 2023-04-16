@@ -1,10 +1,10 @@
 {
-  "name": "@bytemd/vue-next",
+  "name": "@flicmd/bytemd-vue-next",
   "version": "1.21.0",
   "description": "Hackable Markdown Editor and Viewer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/bytemd.git",
+    "url": "https://github.com/zzzze/bytemd.git",
     "directory": "packages/vue-next"
   },
   "license": "MIT",
@@ -28,7 +28,7 @@
     "locales"
   ],
   "dependencies": {
-    "bytemd": "workspace:*"
+    "@flicmd/bytemd": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",

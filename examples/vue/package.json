@@ -1,5 +1,5 @@
 {
-  "name": "@bytemd/example-vue",
+  "name": "@flicmd/bytemd-example-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,8 +7,8 @@
     "serve": "vue-cli-service serve"
   },
   "dependencies": {
-    "@bytemd/plugin-gfm": "latest",
-    "@bytemd/vue": "latest",
+    "@flicmd/bytemd-plugin-gfm": "latest",
+    "@flicmd/bytemd-vue": "latest",
     "bytemd": "latest",
     "vue": "^2.6.14"
   },

@@ -1,7 +1,7 @@
 {
-  "title": "Formule",
   "block": "Formule en bloc",
   "blockText": "formule",
   "inline": "Formule en ligne",
-  "inlineText": "formule"
+  "inlineText": "formule",
+  "title": "Formule"
 }

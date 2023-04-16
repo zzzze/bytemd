@@ -1,7 +1,7 @@
 {
-  "title": "Formel",
   "block": "Blokkformel",
   "blockText": "formel",
   "inline": "Formel på samme linje",
-  "inlineText": "formel"
+  "inlineText": "formel",
+  "title": "Formel"
 }

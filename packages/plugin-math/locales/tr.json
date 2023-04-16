@@ -1,7 +1,7 @@
 {
-  "title": "Formül",
   "block": "Blok formülü",
   "blockText": "formül",
   "inline": "Satır içi formülü",
-  "inlineText": "formül"
+  "inlineText": "formül",
+  "title": "Formül"
 }

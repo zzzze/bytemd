@@ -1,6 +1,6 @@
 # ByteMD
 
-![test](https://github.com/bytedance/bytemd/workflows/test/badge.svg) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbytedance%2Fbytemd.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbytedance%2Fbytemd?ref=badge_shield)
+![test](https://github.com/zzzze/bytemd/workflows/test/badge.svg) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fzzzze%2Fbytemd.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fzzzze%2Fbytemd?ref=badge_shield)
 
 ByteMD is a Markdown editor component built with Svelte. It could also be used in other libraries/frameworks such as React, Vue and Angular.
 
@@ -17,10 +17,10 @@ Playground here: https://bytemd.js.org/playground/
 
 | Package | Status | Description |
 | --- | --- | --- |
-| [bytemd](https://github.com/bytedance/bytemd/tree/main/packages/bytemd) | [![npm](https://img.shields.io/npm/v/bytemd?label=)](https://npm.im/bytemd) | Svelte/Vanilla JS component |
-| [@bytemd/react](https://github.com/bytedance/bytemd/tree/main/packages/react) | [![npm](https://img.shields.io/npm/v/@bytemd/react.svg?label=)](https://npm.im/@bytemd/react) | React component |
-| [@bytemd/vue](https://github.com/bytedance/bytemd/tree/main/packages/vue) | [![npm](https://img.shields.io/npm/v/@bytemd/vue.svg?label=)](https://npm.im/@bytemd/vue) | Vue 2 component |
-| [@bytemd/vue-next](https://github.com/bytedance/bytemd/tree/main/packages/vue-next) | [![npm](https://img.shields.io/npm/v/@bytemd/vue-next.svg?label=)](https://npm.im/@bytemd/vue-next) | Vue 3 component |
+| [@flicmd/bytemd](https://github.com/zzzze/bytemd/tree/main/packages/bytemd) | [![npm](https://img.shields.io/npm/v/bytemd?label=)](https://npm.im/bytemd) | Svelte/Vanilla JS component |
+| [@flicmd/bytemd-react](https://github.com/zzzze/bytemd/tree/main/packages/react) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-react.svg?label=)](https://npm.im/@flicmd/bytemd-react) | React component |
+| [@flicmd/bytemd-vue](https://github.com/zzzze/bytemd/tree/main/packages/vue) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-vue.svg?label=)](https://npm.im/@flicmd/bytemd-vue) | Vue 2 component |
+| [@flicmd/bytemd-vue-next](https://github.com/zzzze/bytemd/tree/main/packages/vue-next) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-vue-next.svg?label=)](https://npm.im/@flicmd/bytemd-vue-next) | Vue 3 component |
 
 ### Legacy browsers support
 
@@ -28,7 +28,7 @@ The default entry of NPM package only supports modern browsers. To make legacy b
 
 > The ES5 bundle will no longer be available after version 1.11.0. If you need it, you can use [version 1.11.0](https://unpkg.com/bytemd@1.11.0/dist/index.es5.min.js) or earlier versions
 
-Notice that polyfills are not included, and should be imported manually, see the [legacy browser example](https://github.com/bytedance/bytemd/blob/main/examples/legacy-browser/index.html).
+Notice that polyfills are not included, and should be imported manually, see the [legacy browser example](https://github.com/zzzze/bytemd/blob/main/examples/legacy-browser/index.html).
 
 ## Usage
 
@@ -37,15 +37,15 @@ There are two components: `Editor` and `Viewer`. `Editor` is the Markdown editor
 Before using the component, remember to import CSS file to make styles correct:
 
 ```js
-import 'bytemd/dist/index.css'
+import '@flicmd/bytemd/dist/index.css'
 ```
 
 ### Svelte
 
 ```svelte
 <script>
-  import { Editor, Viewer, builtInPlugins } from 'bytemd'
-  import gfm from '@bytemd/plugin-gfm'
+  import { Editor, Viewer, builtInPlugins } from '@flicmd/bytemd'
+  import gfm from '@flicmd/bytemd-plugin-gfm'
 
   let value
   const plugins = [
@@ -82,8 +82,8 @@ import 'bytemd/dist/index.css'
 ### React
 
 ```js
-import gfm from '@bytemd/plugin-gfm'
-import { Editor, Viewer, builtInPlugins } from '@bytemd/react'
+import gfm from '@flicmd/bytemd-plugin-gfm'
+import { Editor, Viewer, builtInPlugins } from '@flicmd/bytemd-react'
 
 const plugins = [
   builtInPlugins.head(),
@@ -129,8 +129,8 @@ const App = () => {
 </template>
 
 <script>
-import gfm from '@bytemd/plugin-gfm'
-import { Editor, Viewer, builtInPlugins } from '@bytemd/vue'
+import gfm from '@flicmd/bytemd-plugin-gfm'
+import { Editor, Viewer, builtInPlugins } from '@flicmd/bytemd-vue'
 
 const plugins = [
   builtInPlugins.head(),
@@ -170,8 +170,8 @@ export default {
 ### Vanilla JS
 
 ```js
-import gfm from '@bytemd/plugin-gfm'
-import { Editor, Viewer, builtInPlugins } from 'bytemd'
+import { Editor, Viewer, builtInPlugins } from '@flicmd/bytemd'
+import gfm from '@flicmd/bytemd-plugin-gfm'
 
 const plugins = [
   builtInPlugins.head(),
@@ -244,7 +244,7 @@ The default height of ByteMD Editor is `300px`. It could be overridden by CSS:
 }
 ```
 
-The other styles could also be overridden, see [the default style](https://github.com/bytedance/bytemd/blob/main/packages/bytemd/src/index.scss).
+The other styles could also be overridden, see [the default style](https://github.com/zzzze/bytemd/blob/main/packages/bytemd/src/index.scss).
 
 #### Viewer
 
@@ -260,16 +260,16 @@ If you have more customized needs, you could also write your own plugin to suppo
 
 | Package | Status | Description |
 | --- | --- | --- |
-| [@bytemd/plugin-breaks](https://github.com/bytedance/bytemd/tree/main/packages/plugin-breaks) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-breaks.svg?label=)](https://npm.im/@bytemd/plugin-breaks) | Support breaks |
-| [@bytemd/plugin-frontmatter](https://github.com/bytedance/bytemd/tree/main/packages/plugin-frontmatter) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-frontmatter.svg?label=)](https://npm.im/@bytemd/plugin-frontmatter) | Parse frontmatter |
-| [@bytemd/plugin-gemoji](https://github.com/bytedance/bytemd/tree/main/packages/plugin-gemoji) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-gemoji.svg?label=)](https://npm.im/@bytemd/plugin-gemoji) | Support Gemoji shortcodes |
-| [@bytemd/plugin-gfm](https://github.com/bytedance/bytemd/tree/main/packages/plugin-gfm) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-gfm.svg?label=)](https://npm.im/@bytemd/plugin-gfm) | Support GFM (autolink literals, strikethrough, tables, tasklists) |
-| [@bytemd/plugin-highlight](https://github.com/bytedance/bytemd/tree/main/packages/plugin-highlight) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-highlight.svg?label=)](https://npm.im/@bytemd/plugin-highlight) | Highlight code blocks |
-| [@bytemd/plugin-highlight-ssr](https://github.com/bytedance/bytemd/tree/main/packages/plugin-highlight-ssr) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-highlight-ssr.svg?label=)](https://npm.im/@bytemd/plugin-highlight-ssr) | Highlight code blocks (SSR compatible) |
-| [@bytemd/plugin-math](https://github.com/bytedance/bytemd/tree/main/packages/plugin-math) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-math.svg?label=)](https://npm.im/@bytemd/plugin-math) | Support math formula |
-| [@bytemd/plugin-math-ssr](https://github.com/bytedance/bytemd/tree/main/packages/plugin-math-ssr) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-math-ssr.svg?label=)](https://npm.im/@bytemd/plugin-math-ssr) | Support math formula (SSR compatible) |
-| [@bytemd/plugin-medium-zoom](https://github.com/bytedance/bytemd/tree/main/packages/plugin-medium-zoom) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-medium-zoom.svg?label=)](https://npm.im/@bytemd/plugin-medium-zoom) | Zoom images like Medium |
-| [@bytemd/plugin-mermaid](https://github.com/bytedance/bytemd/tree/main/packages/plugin-mermaid) | [![npm](https://img.shields.io/npm/v/@bytemd/plugin-mermaid.svg?label=)](https://npm.im/@bytemd/plugin-mermaid) | Support Mermaid diagram |
+| [@flicmd/bytemd-plugin-breaks](https://github.com/zzzze/bytemd/tree/main/packages/plugin-breaks) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-breaks.svg?label=)](https://npm.im/@flicmd/bytemd-plugin-breaks) | Support breaks |
+| [@flicmd/bytemd-plugin-frontmatter](https://github.com/zzzze/bytemd/tree/main/packages/plugin-frontmatter) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-frontmatter.svg?label=)](https://npm.im/@flicmd/bytemd-plugin-frontmatter) | Parse frontmatter |
+| [@flicmd/bytemd-plugin-gemoji](https://github.com/zzzze/bytemd/tree/main/packages/plugin-gemoji) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-gemoji.svg?label=)](https://npm.im/@flicmd/bytemd-plugin-gemoji) | Support Gemoji shortcodes |
+| [@flicmd/bytemd-plugin-gfm](https://github.com/zzzze/bytemd/tree/main/packages/plugin-gfm) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-gfm.svg?label=)](https://npm.im/@flicmd/bytemd-plugin-gfm) | Support GFM (autolink literals, strikethrough, tables, tasklists) |
+| [@flicmd/bytemd-plugin-highlight](https://github.com/zzzze/bytemd/tree/main/packages/plugin-highlight) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-highlight.svg?label=)](https://npm.im/@flicmd/bytemd-plugin-highlight) | Highlight code blocks |
+| [@flicmd/bytemd-plugin-highlight-ssr](https://github.com/zzzze/bytemd/tree/main/packages/plugin-highlight-ssr) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-highlight-ssr.svg?label=)](https://npm.im/@flicmd/bytemd-plugin-highlight-ssr) | Highlight code blocks (SSR compatible) |
+| [@flicmd/bytemd-plugin-math](https://github.com/zzzze/bytemd/tree/main/packages/plugin-math) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-math.svg?label=)](https://npm.im/@flicmd/bytemd-plugin-math) | Support math formula |
+| [@flicmd/bytemd-plugin-math-ssr](https://github.com/zzzze/bytemd/tree/main/packages/plugin-math-ssr) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-math-ssr.svg?label=)](https://npm.im/@flicmd/bytemd-plugin-math-ssr) | Support math formula (SSR compatible) |
+| [@flicmd/bytemd-plugin-medium-zoom](https://github.com/zzzze/bytemd/tree/main/packages/plugin-medium-zoom) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-medium-zoom.svg?label=)](https://npm.im/@flicmd/bytemd-plugin-medium-zoom) | Zoom images like Medium |
+| [@flicmd/bytemd-plugin-mermaid](https://github.com/zzzze/bytemd/tree/main/packages/plugin-mermaid) | [![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-mermaid.svg?label=)](https://npm.im/@flicmd/bytemd-plugin-mermaid) | Support Mermaid diagram |
 
 ### Technical Overview
 
@@ -283,9 +283,7 @@ ByteMD uses [remark](https://github.com/remarkjs/remark) and [rehype](https://gi
 6. The HTML AST is stringified to HTML
 7. Some extra DOM manipulation after the HTML being rendered
 
-It could also be described as a flowchart:
-
-![plugin system](https://raw.githubusercontent.com/bytedance/bytemd/main/assets/plugin.svg)
+![plugin system](https: It could also be described as a flowchart: raw.githubusercontent.com/zzzze/bytemd/main/assets/plugin.svg)
 
 The 2,5,7 steps are designed for user customization via ByteMD plugin API.
 
@@ -296,7 +294,7 @@ We'll take Math formula plugin as an example to walk you through the process.
 First of all, scaffold the project according to the `BytemdPlugin` type signature:
 
 ```ts
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@flicmd/bytemd'
 
 export default function mathPlugin(): BytemdPlugin {
   return {
@@ -314,7 +312,7 @@ Then we look into the requirement more closely: If we want to render syntax like
 For the first thing, luckily, we don't need to implement it with our own because [remark-math](https://github.com/remarkjs/remark-math) already did it. The only thing we need to do is to import and use it:
 
 ```diff
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@flicmd/bytemd'
 +import remarkMath from 'remark-math'
 
 export default function mathPlugin(): BytemdPlugin {
@@ -325,11 +323,11 @@ export default function mathPlugin(): BytemdPlugin {
 }
 ```
 
-Then consider the second thing, it would be a little complicated because we have two choices, do it in step 5 or 7. The difference is that step 5 is more friendly with SSR, while step 7 hand over the rendering to the client-side. This is why we have two plugin: [@bytemd/plugin-math](https://github.com/bytedance/bytemd/tree/main/packages/plugin-math) and [@bytemd/plugin-math-ssr](https://github.com/bytedance/bytemd/tree/main/packages/plugin-math-ssr).
+Then consider the second thing, it would be a little complicated because we have two choices, do it in step 5 or 7. The difference is that step 5 is more friendly with SSR, while step 7 hand over the rendering to the client-side. This is why we have two plugin: [@flicmd/bytemd-plugin-math](https://github.com/zzzze/bytemd/tree/main/packages/plugin-math) and [@flicmd/bytemd-plugin-math-ssr](https://github.com/zzzze/bytemd/tree/main/packages/plugin-math-ssr).
 
 ```diff
 // if we choose step 5:
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@flicmd/bytemd'
 import remarkMath from 'remark-math'
 +import rehypeKatex from 'rehype-katex'
 
@@ -341,7 +339,7 @@ export default function mathPlugin(): BytemdPlugin {
 }
 
 // if we choose step 7:
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@flicmd/bytemd'
 import remarkMath from 'remark-math'
 +import rehypeKatex from 'rehype-katex'
 
@@ -395,10 +393,10 @@ Now we have completed a minimalist version of the plugin! For more details and r
 
 ## Contributors
 
-[![](https://contrib.rocks/image?repo=bytedance/bytemd)](https://github.com/bytedance/bytemd/graphs/contributors)
+[![](https://contrib.rocks/image?repo=zzzze/bytemd)](https://github.com/zzzze/bytemd/graphs/contributors)
 
 ## License
 
 MIT
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbytedance%2Fbytemd.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbytedance%2Fbytemd?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fzzzze%2Fbytemd.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fzzzze%2Fbytemd?ref=badge_large)

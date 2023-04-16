@@ -1,10 +1,10 @@
 {
-  "name": "@bytemd/plugin-math",
+  "name": "@flicmd/bytemd-plugin-math",
   "version": "1.21.0",
   "description": "ByteMD plugin to support math formula",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/bytemd.git",
+    "url": "https://github.com/zzzze/bytemd.git",
     "directory": "packages/plugin-math"
   },
   "license": "MIT",
@@ -33,9 +33,9 @@
     "remark-math": "^5.1.1"
   },
   "devDependencies": {
-    "bytemd": "workspace:*"
+    "@flicmd/bytemd": "workspace:*"
   },
   "peerDependencies": {
-    "bytemd": "^1.5.0"
+    "@flicmd/bytemd": "^1.5.0"
   }
 }

@@ -1,6 +1,6 @@
-# @bytemd/plugin-{{name}}
+# @flicmd/bytemd-plugin-{{name}}
 
-[![npm](https://img.shields.io/npm/v/@bytemd/plugin-{{name}}.svg)](https://npm.im/@bytemd/plugin-{{name}})
+[![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-{{name}}.svg)](https://npm.im/@flicmd/bytemd-plugin-{{name}})
 
 {{{desc}}}
 
@@ -8,8 +8,8 @@
 
 ```js
 {{{header}}}
-import { Editor } from 'bytemd'
-import {{importedName}} from '@bytemd/plugin-{{name}}'
+import { Editor } from '@flicmd/bytemd'
+import {{importedName}} from '@flicmd/bytemd-plugin-{{name}}'
 
 new Editor({
   target: document.body,

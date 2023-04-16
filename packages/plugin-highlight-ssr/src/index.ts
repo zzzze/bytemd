@@ -1,4 +1,4 @@
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@flicmd/bytemd'
 import rehypeHighlight, { Options } from 'rehype-highlight'
 
 export default function highlightSsr({

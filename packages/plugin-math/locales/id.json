@@ -1,7 +1,7 @@
 {
-  "title": "Rumus",
   "block": "Blok rumus",
   "blockText": "rumus",
   "inline": "Rumus sebaris",
-  "inlineText": "rumus"
+  "inlineText": "rumus",
+  "title": "Rumus"
 }
