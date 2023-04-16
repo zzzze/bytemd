@@ -1,6 +1,6 @@
 {
   "name": "@flicmd/bytemd-plugin-gemoji",
-  "version": "1.21.0",
+  "version": "1.21.2",
   "description": "ByteMD plugin to support Gemoji shortcodes",
   "repository": {
     "type": "git",
