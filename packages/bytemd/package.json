@@ -23,7 +23,8 @@
     "./locales/*": "./locales/*",
     "./lib/locales/*": "./locales/*",
     "./dist/index.css": "./dist/index.css",
-    "./dist/index.min.css": "./dist/index.min.css"
+    "./dist/index.min.css": "./dist/index.min.css",
+    "./dist/theme/*": "./dist/theme/*"
   },
   "main": "./dist/index.js",
   "svelte": "./svelte/index.js",
