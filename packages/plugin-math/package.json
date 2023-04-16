@@ -1,6 +1,6 @@
 {
   "name": "@flicmd/bytemd-plugin-math",
-  "version": "1.21.3",
+  "version": "1.21.4",
   "description": "ByteMD plugin to support math formula",
   "repository": {
     "type": "git",
