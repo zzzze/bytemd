@@ -1,11 +1,6 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "useWorkspaces": true,
-  "version": "1.21.2",
-  "command": {
-    "publish": {
-      "ignoreChanges": ["@flicmd/bytemd"]
-    }
-  },
+  "version": "1.21.3",
   "registry": "https://registry.npmjs.org"
 }
