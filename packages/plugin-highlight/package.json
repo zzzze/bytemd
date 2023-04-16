@@ -1,6 +1,6 @@
 {
   "name": "@flicmd/bytemd-plugin-highlight",
-  "version": "1.21.1",
+  "version": "1.21.2",
   "description": "ByteMD plugin to highlight code blocks",
   "repository": {
     "type": "git",
