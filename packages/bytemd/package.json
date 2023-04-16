@@ -60,5 +60,6 @@
   "devDependencies": {
     "@primer/css": "^15.2.0",
     "codemirror": "^5.65.12"
-  }
+  },
+  "gitHead": "ba2dc74335117faf076064d6d3fa77e19bda8a62"
 }
