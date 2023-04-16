@@ -1,4 +1,4 @@
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@flicmd/bytemd'
 import remarkBreaks from 'remark-breaks'
 
 export default function breaks(): BytemdPlugin {

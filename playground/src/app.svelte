@@ -1,21 +1,21 @@
 <script lang="ts">
   import markdownText from './text.md?raw'
-  import breaks from '@bytemd/plugin-breaks'
-  import frontmatter from '@bytemd/plugin-frontmatter'
-  import gemoji from '@bytemd/plugin-gemoji'
-  import gfm from '@bytemd/plugin-gfm'
-  import highlight from '@bytemd/plugin-highlight'
-  import math from '@bytemd/plugin-math'
-  import mediumZoom from '@bytemd/plugin-medium-zoom'
-  import mermaid from '@bytemd/plugin-mermaid'
-  import { Editor, builtInPlugins } from 'bytemd'
-  import type { BytemdEditorAPI } from 'bytemd'
-  import 'bytemd/dist/index.css'
-  import 'bytemd/dist/theme/nord.css'
-  import 'bytemd/dist/theme/abcdef.css'
-  import 'bytemd/dist/theme/blackboard.css'
-  import 'bytemd/dist/theme/moxer.css'
-  import 'bytemd/dist/theme/tomorrow-night-eighties.css'
+  import { Editor, builtInPlugins } from '@flicmd/bytemd'
+  import type { BytemdEditorAPI } from '@flicmd/bytemd'
+  import breaks from '@flicmd/bytemd-plugin-breaks'
+  import frontmatter from '@flicmd/bytemd-plugin-frontmatter'
+  import gemoji from '@flicmd/bytemd-plugin-gemoji'
+  import gfm from '@flicmd/bytemd-plugin-gfm'
+  import highlight from '@flicmd/bytemd-plugin-highlight'
+  import math from '@flicmd/bytemd-plugin-math'
+  import mediumZoom from '@flicmd/bytemd-plugin-medium-zoom'
+  import mermaid from '@flicmd/bytemd-plugin-mermaid'
+  import '@flicmd/bytemd/dist/index.css'
+  import '@flicmd/bytemd/dist/theme/abcdef.css'
+  import '@flicmd/bytemd/dist/theme/blackboard.css'
+  import '@flicmd/bytemd/dist/theme/moxer.css'
+  import '@flicmd/bytemd/dist/theme/nord.css'
+  import '@flicmd/bytemd/dist/theme/tomorrow-night-eighties.css'
   import 'highlight.js/styles/vs.css'
   // placed after highlight styles to override `code` padding
   import 'katex/dist/katex.css'
@@ -32,30 +32,36 @@
   }
 
   let dark = false
-  const useDark = window.matchMedia("(prefers-color-scheme: dark)")
+  const useDark = window.matchMedia('(prefers-color-scheme: dark)')
   function toggleDarkMode(state: boolean) {
     dark = state
   }
-  toggleDarkMode(localStorage.getItem("dark-mode") == "true")
+  toggleDarkMode(localStorage.getItem('dark-mode') == 'true')
   useDark.addListener((evt) => toggleDarkMode(evt.matches))
 
   const locales = stripPrefixes(
     import.meta.glob('/node_modules/bytemd/locales/*.json', { eager: true })
   )
   const gfmLocales = stripPrefixes(
-    import.meta.glob('/node_modules/@bytemd/plugin-gfm/locales/*.json', {
+    import.meta.glob('/node_modules/@flicmd/bytemd-plugin-gfm/locales/*.json', {
       eager: true,
     })
   )
   const mathLocales = stripPrefixes(
-    import.meta.glob('/node_modules/@bytemd/plugin-math/locales/*.json', {
-      eager: true,
-    })
+    import.meta.glob(
+      '/node_modules/@flicmd/bytemd-plugin-math/locales/*.json',
+      {
+        eager: true,
+      }
+    )
   )
   const mermaidLocales = stripPrefixes(
-    import.meta.glob('/node_modules/@bytemd/plugin-mermaid/locales/*.json', {
-      eager: true,
-    })
+    import.meta.glob(
+      '/node_modules/@flicmd/bytemd-plugin-mermaid/locales/*.json',
+      {
+        eager: true,
+      }
+    )
   )
 
   let value = markdownText
@@ -63,7 +69,13 @@
   let darkTheme = 'nord'
   let localeKey = 'en'
   let maxLength: number
-  let darkThemes = ['nord', 'abcdef', 'blackboard', 'moxer', 'tomorrow-night-eighties']
+  let darkThemes = [
+    'nord',
+    'abcdef',
+    'blackboard',
+    'moxer',
+    'tomorrow-night-eighties',
+  ]
 
   let enabled = {
     breaks: false,
@@ -108,7 +120,7 @@
       }),
 
     builtInPlugins.source(),
-    builtInPlugins.fullscreen({ position: 'left' }),
+    builtInPlugins.fullscreen(),
     builtInPlugins.darkMode(),
     builtInPlugins.preview(),
     builtInPlugins.write(),
@@ -119,11 +131,23 @@
 
 <div class="container">
   {#if dark}
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css" />
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
   {:else}
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css" />
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/styles/vs.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.7.0/styles/vs.min.css"
+    />
   {/if}
 
   <div class="line">
@@ -159,7 +183,7 @@
     {mode}
     {plugins}
     {maxLength}
-    darkTheme={darkTheme}
+    {darkTheme}
     {dark}
     placeholder={'Start writing with ByteMD'}
     locale={locales[localeKey]}

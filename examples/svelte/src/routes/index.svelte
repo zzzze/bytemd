@@ -1,7 +1,7 @@
 <script>
-  import { Editor } from 'bytemd'
-  import gfm from '@bytemd/plugin-gfm'
-  import 'bytemd/dist/index.css'
+  import { Editor } from '@flicmd/bytemd'
+  import gfm from '@flicmd/bytemd-plugin-gfm'
+  import '@flicmd/bytemd/dist/index.css'
 
   let value = ''
   let plugins = [gfm()]

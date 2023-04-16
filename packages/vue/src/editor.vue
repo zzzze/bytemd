@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import * as bytemd from 'bytemd'
+import * as bytemd from '@flicmd/bytemd'
 
 export default {
   props: {

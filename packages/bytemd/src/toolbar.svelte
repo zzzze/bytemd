@@ -1,7 +1,9 @@
 <svelte:options immutable={true} />
 
 <script lang="ts">
+  import Control from './control.svelte'
   import { getActions } from './editor'
+  import { icons } from './icons'
   import type {
     BytemdEditorContext,
     BytemdAction,
@@ -13,8 +15,6 @@
   import { createEventDispatcher, onMount, tick } from 'svelte'
   import type { DelegateInstance } from 'tippy.js'
   import { delegate } from 'tippy.js'
-  import Control from './control.svelte';
-  import { icons } from './icons';
 
   const dispatch = createEventDispatcher()
   let toolbar: HTMLElement
@@ -43,7 +43,14 @@
         actions.push(action)
       } else {
         actions.push({
-          ...action.create({ dispatch, sidebar, split, activeTab, fullscreen, dark }),
+          ...action.create({
+            dispatch,
+            sidebar,
+            split,
+            activeTab,
+            fullscreen,
+            dark,
+          }),
           position: action.position,
         })
       }
@@ -51,13 +58,16 @@
     }, []),
   ]
 
-  $: leftActions = _leftActions.length === 0 ? _leftActions : _leftActions.concat({
-    icon: icons.ApplicationMenu,
-    handler: {
-      type: 'dropdown',
-      actions: _leftActions,
-    }
-  } as BytemdAction)
+  $: leftActions =
+    _leftActions.length === 0
+      ? _leftActions
+      : _leftActions.concat({
+          icon: icons.ApplicationMenu,
+          handler: {
+            type: 'dropdown',
+            actions: _leftActions,
+          },
+        } as BytemdAction)
 
   $: rightActions = [
     ...actions.rightActions.reduce<BytemdAction[]>((actions, action) => {
@@ -65,7 +75,14 @@
         actions.push(action)
       } else {
         actions.push({
-          ...action.create({ dispatch, sidebar, split, activeTab, fullscreen, dark }),
+          ...action.create({
+            dispatch,
+            sidebar,
+            split,
+            activeTab,
+            fullscreen,
+            dark,
+          }),
           position: action.position,
         })
       }
@@ -271,11 +288,7 @@
     {#if split}
       {#each leftActions as item, index}
         {#if index < leftActions.length - 1}
-          <Control
-            action={item}
-            index={index}
-            classNames={[tippyClass]}
-          />
+          <Control action={item} {index} classNames={[tippyClass]} />
         {/if}
       {/each}
     {:else}
@@ -311,7 +324,7 @@
     {#each rightActions as item, index}
       <Control
         action={item}
-        index={index}
+        {index}
         classNames={[tippyClass, tippyClassRight]}
       />
     {/each}

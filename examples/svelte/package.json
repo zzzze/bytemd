@@ -1,5 +1,5 @@
 {
-	"name": "@bytemd/example-svelte",
+	"name": "@flicmd/bytemd-example-svelte",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "svelte-kit dev",
@@ -11,7 +11,7 @@
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
-    "@bytemd/plugin-gfm": "latest",
+    "@flicmd/bytemd-plugin-gfm": "latest",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
     "bytemd": "latest",

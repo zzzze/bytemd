@@ -1,5 +1,5 @@
 {
-  "name": "@bytemd/example-react-nextjs",
+  "name": "@flicmd/bytemd-example-react-nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@bytemd/plugin-gfm": "latest",
-    "@bytemd/react": "latest",
+    "@flicmd/bytemd-plugin-gfm": "latest",
+    "@flicmd/bytemd-react": "latest",
     "bytemd": "latest",
     "next": "12.1.1",
     "react": "17.0.2",

@@ -1,3 +1,3 @@
 # ByteMD
 
-https://github.com/bytedance/bytemd
+https://github.com/zzzze/bytemd

@@ -1,7 +1,7 @@
 <svelte:options immutable={true} />
 
 <script lang="ts">
-  import { BytemdAction } from "./types";
+  import { BytemdAction } from './types'
 
   export let action: BytemdAction
   export let index: number

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Editor } from '@bytemd/vue-next'
-import gfm from '@bytemd/plugin-gfm'
-import 'bytemd/dist/index.css'
+import { Editor } from '@flicmd/bytemd-vue-next'
+import gfm from '@flicmd/bytemd-plugin-gfm'
+import '@flicmd/bytemd/dist/index.css'
 
 let content = ref('')
 

@@ -1,5 +1,5 @@
 {
-  "name": "@bytemd/example-vue3",
+  "name": "@flicmd/bytemd-example-vue3",
   "version": "0.0.0",
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
@@ -8,8 +8,8 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@bytemd/plugin-gfm": "latest",
-    "@bytemd/vue-next": "latest",
+    "@flicmd/bytemd-plugin-gfm": "latest",
+    "@flicmd/bytemd-vue-next": "latest",
     "bytemd": "latest",
     "vue": "^3.2.31"
   },

@@ -168,7 +168,7 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2
     devDependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
 
@@ -187,7 +187,7 @@ importers:
         specifier: ^5.3.7
         version: 5.3.7
     devDependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
 
@@ -197,7 +197,7 @@ importers:
         specifier: ^7.0.1
         version: 7.0.1
     devDependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
 
@@ -207,7 +207,7 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
     devDependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
 
@@ -217,7 +217,7 @@ importers:
         specifier: ^11.7.0
         version: 11.7.0
     devDependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
 
@@ -227,7 +227,7 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0
     devDependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
 
@@ -243,7 +243,7 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1
     devDependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
 
@@ -256,7 +256,7 @@ importers:
         specifier: ^5.1.1
         version: 5.1.1
     devDependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
 
@@ -266,7 +266,7 @@ importers:
         specifier: ^1.0.8
         version: 1.0.8
     devDependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
 
@@ -276,13 +276,13 @@ importers:
         specifier: ^10.0.2
         version: 10.0.2
     devDependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
 
   packages/react:
     dependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
     devDependencies:
@@ -295,13 +295,13 @@ importers:
 
   packages/vue:
     dependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
     devDependencies:
       vite-plugin-vue2:
         specifier: ^2.0.3
-        version: 2.0.3(mustache@4.2.0)(vite@4.2.1)(vue-template-compiler@2.7.14)(vue@2.7.14)
+        version: 2.0.3(vue-template-compiler@2.7.14)(vue@2.7.14)
       vue:
         specifier: ^2.7.14
         version: 2.7.14
@@ -311,55 +311,55 @@ importers:
 
   packages/vue-next:
     dependencies:
-      bytemd:
+      '@flicmd/bytemd':
         specifier: workspace:*
         version: link:../bytemd
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^4.1.0
-        version: 4.1.0(vite@4.2.1)(vue@3.2.47)
+        version: 4.1.0(vue@3.2.47)
       vue:
         specifier: ^3.2.47
         version: 3.2.47
 
   playground:
     dependencies:
-      '@bytemd/plugin-breaks':
+      '@flicmd/bytemd':
+        specifier: workspace:*
+        version: link:../packages/bytemd
+      '@flicmd/bytemd-plugin-breaks':
         specifier: workspace:*
         version: link:../packages/plugin-breaks
-      '@bytemd/plugin-frontmatter':
+      '@flicmd/bytemd-plugin-frontmatter':
         specifier: workspace:*
         version: link:../packages/plugin-frontmatter
-      '@bytemd/plugin-gemoji':
+      '@flicmd/bytemd-plugin-gemoji':
         specifier: workspace:*
         version: link:../packages/plugin-gemoji
-      '@bytemd/plugin-gfm':
+      '@flicmd/bytemd-plugin-gfm':
         specifier: workspace:*
         version: link:../packages/plugin-gfm
-      '@bytemd/plugin-highlight':
+      '@flicmd/bytemd-plugin-highlight':
         specifier: workspace:*
         version: link:../packages/plugin-highlight
-      '@bytemd/plugin-highlight-ssr':
+      '@flicmd/bytemd-plugin-highlight-ssr':
         specifier: workspace:*
         version: link:../packages/plugin-highlight-ssr
-      '@bytemd/plugin-math':
+      '@flicmd/bytemd-plugin-math':
         specifier: workspace:*
         version: link:../packages/plugin-math
-      '@bytemd/plugin-math-ssr':
+      '@flicmd/bytemd-plugin-math-ssr':
         specifier: workspace:*
         version: link:../packages/plugin-math-ssr
-      '@bytemd/plugin-medium-zoom':
+      '@flicmd/bytemd-plugin-medium-zoom':
         specifier: workspace:*
         version: link:../packages/plugin-medium-zoom
-      '@bytemd/plugin-mermaid':
+      '@flicmd/bytemd-plugin-mermaid':
         specifier: workspace:*
         version: link:../packages/plugin-mermaid
       '@sveltejs/vite-plugin-svelte':
         specifier: 2.0.4
-        version: 2.0.4(svelte@3.57.0)(vite@4.2.1)
-      bytemd:
-        specifier: workspace:*
-        version: link:../packages/bytemd
+        version: 2.0.4(vite@4.2.1)
       github-markdown-css:
         specifier: ^5.2.0
         version: 5.2.0
@@ -371,10 +371,10 @@ importers:
         version: 0.16.4
       svelte-preprocess:
         specifier: ^5.0.3
-        version: 5.0.3(sass@1.60.0)(svelte@3.57.0)(typescript@5.0.2)
+        version: 5.0.3
       vite:
         specifier: ^4.2.1
-        version: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
+        version: 4.2.1
 
 packages:
 
@@ -1902,6 +1902,25 @@ packages:
       vitefu: 0.2.4(vite@4.2.1)
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@sveltejs/vite-plugin-svelte@2.0.4(vite@4.2.1):
+    resolution: {integrity: sha512-pjqhW00KwK2uzDGEr+yJBwut+D+4XfJO/+bHHdHzPRXn9+1Jeq5JcFHyrUiYaXgHtyhX0RsllCTm4ssAx4ZY7Q==}
+    engines: {node: ^14.18.0 || >= 16}
+    peerDependencies:
+      svelte: ^3.54.0
+      vite: ^4.0.0
+    dependencies:
+      debug: 4.3.4
+      deepmerge: 4.3.1
+      kleur: 4.1.5
+      magic-string: 0.30.0
+      svelte-hmr: 0.15.1
+      vite: 4.2.1
+      vitefu: 0.2.4(vite@4.2.1)
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /@testing-library/dom@8.19.0:
     resolution: {integrity: sha512-6YWYPPpxG3e/xOo6HIWwB/58HukkwIVTOaZ0VwdMVjhRUX/01E4FtQbck9GazOOj7MXHc5RBzMrU86iBJHbI+A==}
@@ -2105,6 +2124,7 @@ packages:
 
   /@types/node@18.15.11:
     resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
+    dev: true
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -2171,14 +2191,13 @@ packages:
       '@types/yargs-parser': 21.0.0
     dev: true
 
-  /@vitejs/plugin-vue@4.1.0(vite@4.2.1)(vue@3.2.47):
+  /@vitejs/plugin-vue@4.1.0(vue@3.2.47):
     resolution: {integrity: sha512-++9JOAFdcXI3lyer9UKUV4rfoQ3T1RN8yDqoCLar86s0xQct5yblxAE+yWgRnU5/0FOlVCpTZpYSBV/bGWrSrQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
       vue: 3.2.47
     dev: true
 
@@ -2359,10 +2378,10 @@ packages:
       '@vue/shared': 3.2.47
     dev: true
 
-  /@vue/component-compiler-utils@3.3.0(mustache@4.2.0):
+  /@vue/component-compiler-utils@3.3.0:
     resolution: {integrity: sha512-97sfH2mYNU+2PzGrmK2haqffDpVASuib9/w2/noxiFi31Z54hW+q3izKQXXQZSNhtiUpAI36uSuYepeBe4wpHQ==}
     dependencies:
-      consolidate: 0.15.1(mustache@4.2.0)
+      consolidate: 0.15.1
       hash-sum: 1.0.2
       lru-cache: 4.1.5
       merge-source-map: 1.1.0
@@ -3173,7 +3192,7 @@ packages:
     resolution: {integrity: sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==}
     dev: true
 
-  /consolidate@0.15.1(mustache@4.2.0):
+  /consolidate@0.15.1:
     resolution: {integrity: sha512-DW46nrsMJgy9kqAbPt5rKaCr7uFtpo4mSUvLHIUbJEjm0vo+aY5QLwBUq3FK4tRnJr/X0Psc0C4jf/h+HtXSMw==}
     engines: {node: '>= 0.10.0'}
     peerDependencies:
@@ -3339,10 +3358,9 @@ packages:
         optional: true
     dependencies:
       bluebird: 3.7.2
-      mustache: 4.2.0
     dev: true
 
-  /consolidate@0.16.0(mustache@4.2.0):
+  /consolidate@0.16.0:
     resolution: {integrity: sha512-Nhl1wzCslqXYTJVDyJCu3ODohy9OfBMB5uD2BiBTzd7w+QY0lBzafkR8y8755yMYHAaMD4NuzbAw03/xzfw+eQ==}
     engines: {node: '>= 0.10.0'}
     peerDependencies:
@@ -3508,7 +3526,6 @@ packages:
         optional: true
     dependencies:
       bluebird: 3.7.2
-      mustache: 4.2.0
     dev: true
 
   /conventional-changelog-angular@5.0.12:
@@ -8638,6 +8655,13 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
+  /svelte-hmr@0.15.1:
+    resolution: {integrity: sha512-BiKB4RZ8YSwRKCNVdNxK/GfY+r4Kjgp9jCLEy0DuqAKfmQtpL38cQK3afdpjw4sqSs4PLi3jIPJIFp259NkZtA==}
+    engines: {node: ^12.20 || ^14.13.1 || >= 16}
+    peerDependencies:
+      svelte: '>=3.19.0'
+    dev: false
+
   /svelte-hmr@0.15.1(svelte@3.57.0):
     resolution: {integrity: sha512-BiKB4RZ8YSwRKCNVdNxK/GfY+r4Kjgp9jCLEy0DuqAKfmQtpL38cQK3afdpjw4sqSs4PLi3jIPJIFp259NkZtA==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
@@ -8645,6 +8669,52 @@ packages:
       svelte: '>=3.19.0'
     dependencies:
       svelte: 3.57.0
+    dev: true
+
+  /svelte-preprocess@5.0.3:
+    resolution: {integrity: sha512-GrHF1rusdJVbOZOwgPWtpqmaexkydznKzy5qIC2FabgpFyKN57bjMUUUqPRfbBXK5igiEWn1uO/DXsa2vJ5VHA==}
+    engines: {node: '>= 14.10.0'}
+    requiresBuild: true
+    peerDependencies:
+      '@babel/core': ^7.10.2
+      coffeescript: ^2.5.1
+      less: ^3.11.3 || ^4.0.0
+      postcss: ^7 || ^8
+      postcss-load-config: ^2.1.0 || ^3.0.0 || ^4.0.0
+      pug: ^3.0.0
+      sass: ^1.26.8
+      stylus: ^0.55.0
+      sugarss: ^2.0.0 || ^3.0.0 || ^4.0.0
+      svelte: ^3.23.0
+      typescript: '>=3.9.5 || ^4.0.0 || ^5.0.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      coffeescript:
+        optional: true
+      less:
+        optional: true
+      postcss:
+        optional: true
+      postcss-load-config:
+        optional: true
+      pug:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@types/pug': 2.0.6
+      detect-indent: 6.1.0
+      magic-string: 0.27.0
+      sorcery: 0.11.0
+      strip-indent: 3.0.0
+    dev: false
 
   /svelte-preprocess@5.0.3(sass@1.60.0)(svelte@3.57.0)(typescript@5.0.2):
     resolution: {integrity: sha512-GrHF1rusdJVbOZOwgPWtpqmaexkydznKzy5qIC2FabgpFyKN57bjMUUUqPRfbBXK5igiEWn1uO/DXsa2vJ5VHA==}
@@ -8692,6 +8762,7 @@ packages:
       strip-indent: 3.0.0
       svelte: 3.57.0
       typescript: 5.0.2
+    dev: true
 
   /svelte2tsx@0.6.10(svelte@3.57.0)(typescript@5.0.2):
     resolution: {integrity: sha512-7CtUexhSHppSpLwVX7yI9OxJp7+esCNTuOF/CaVxWTgWp88QF/2/dCbpND/cTZmBxht5cFFQBwoLXXqFLdYe3Q==}
@@ -8708,6 +8779,7 @@ packages:
   /svelte@3.57.0:
     resolution: {integrity: sha512-WMXEvF+RtAaclw0t3bPDTUe19pplMlfyKDsixbHQYgCWi9+O9VN0kXU1OppzrB9gPAvz4NALuoca2LfW2bOjTQ==}
     engines: {node: '>= 8'}
+    dev: true
 
   /svg-tags@1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
@@ -8969,6 +9041,7 @@ packages:
     resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
     engines: {node: '>=12.20'}
     hasBin: true
+    dev: true
 
   /ufo@1.1.1:
     resolution: {integrity: sha512-MvlCc4GHrmZdAllBc0iUDowff36Q9Ndw/UzqmEKyrfSzokTd9ZCy1i+IIk5hrYKkjoYVQyNbrw7/F8XJ2rEwTg==}
@@ -9276,7 +9349,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-vue2@2.0.3(mustache@4.2.0)(vite@4.2.1)(vue-template-compiler@2.7.14)(vue@2.7.14):
+  /vite-plugin-vue2@2.0.3(vue-template-compiler@2.7.14)(vue@2.7.14):
     resolution: {integrity: sha512-t3Tu93GWsMHbpeIv66MTO5e/rRAo8/+/eWoUtFYuAdKDMyEnn1dqsrXh+CfG+SJAlxJvcTP8U0eXkzhLjKNyMg==}
     peerDependencies:
       vite: ^2.0.0 || ^3.0.0 || ^4.0.0
@@ -9299,8 +9372,8 @@ packages:
       '@rollup/pluginutils': 4.2.1
       '@vue/babel-helper-vue-jsx-merge-props': 1.4.0
       '@vue/babel-preset-jsx': 1.4.0(@babel/core@7.20.7)(vue@2.7.14)
-      '@vue/component-compiler-utils': 3.3.0(mustache@4.2.0)
-      consolidate: 0.16.0(mustache@4.2.0)
+      '@vue/component-compiler-utils': 3.3.0
+      consolidate: 0.16.0
       debug: 4.3.4
       fs-extra: 10.1.0
       hash-sum: 2.0.0
@@ -9310,7 +9383,6 @@ packages:
       rollup: 2.79.1
       slash: 3.0.0
       source-map: 0.7.4
-      vite: 4.2.1(@types/node@18.15.11)(sass@1.60.0)
       vue-template-babel-compiler: 1.2.0(vue-template-compiler@2.7.14)
       vue-template-compiler: 2.7.14
     transitivePeerDependencies:
@@ -9371,6 +9443,39 @@ packages:
       - whiskers
     dev: true
 
+  /vite@4.2.1:
+    resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.17.14
+      postcss: 8.4.21
+      resolve: 1.22.1
+      rollup: 3.20.2
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: false
+
   /vite@4.2.1(@types/node@18.15.11)(sass@1.60.0):
     resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -9404,6 +9509,7 @@ packages:
       sass: 1.60.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /vite@4.2.1(sass@1.60.0):
     resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}

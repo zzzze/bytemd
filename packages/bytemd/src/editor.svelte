@@ -45,7 +45,10 @@
   $: theme = (dark ? darkTheme : lightTheme) ?? 'default'
   $: containerClassName = [`bytemd-theme-${theme}`, 'bytemd'].join(' ')
   $: mergedLocale = { ...en, ...locale }
-  const dispatch = createEventDispatcher<{ change: { value: string }, darkmodechange: { value: boolean } }>()
+  const dispatch = createEventDispatcher<{
+    change: { value: string }
+    darkmodechange: { value: boolean }
+  }>()
   function toggleDarkMode(state: boolean) {
     dispatch('darkmodechange', { value: state })
     dark = state

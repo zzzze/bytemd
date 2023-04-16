@@ -1,14 +1,14 @@
-# @bytemd/plugin-math
+# @flicmd/bytemd-plugin-math
 
-[![npm](https://img.shields.io/npm/v/@bytemd/plugin-math.svg)](https://npm.im/@bytemd/plugin-math)
+[![npm](https://img.shields.io/npm/v/@flicmd/bytemd-plugin-math.svg)](https://npm.im/@flicmd/bytemd-plugin-math)
 
 ByteMD plugin to support math formula
 
 ## Usage
 
 ```js
-import math from '@bytemd/plugin-math'
-import { Editor } from 'bytemd'
+import { Editor } from '@flicmd/bytemd'
+import math from '@flicmd/bytemd-plugin-math'
 import 'katex/dist/katex.css'
 
 new Editor({

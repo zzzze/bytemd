@@ -1,4 +1,4 @@
-import type { BytemdPlugin } from 'bytemd'
+import type { BytemdPlugin } from '@flicmd/bytemd'
 import remarkGemoji from 'remark-gemoji'
 
 export default function gemoji(): BytemdPlugin {

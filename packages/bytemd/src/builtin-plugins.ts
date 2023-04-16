@@ -550,7 +550,7 @@ export function source({
         handler: {
           type: 'action',
           click() {
-            window.open('https://github.com/bytedance/bytemd')
+            window.open('https://github.com/zzzze/bytemd')
           },
         },
       },

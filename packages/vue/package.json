@@ -1,10 +1,10 @@
 {
-  "name": "@bytemd/vue",
-  "version": "1.21.0",
+  "name": "@flicmd/bytemd-vue",
+  "version": "1.21.4",
   "description": "Hackable Markdown Editor and Viewer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytedance/bytemd.git",
+    "url": "https://github.com/zzzze/bytemd.git",
     "directory": "packages/vue"
   },
   "license": "MIT",
@@ -28,7 +28,7 @@
     "locales"
   ],
   "dependencies": {
-    "bytemd": "workspace:*"
+    "@flicmd/bytemd": "^1.21.4"
   },
   "devDependencies": {
     "vite-plugin-vue2": "^2.0.3",
@@ -37,5 +37,9 @@
   },
   "peerDependencies": {
     "vue": "^2.0.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "6a91119fe677714d8faa5a5d9f2b07a3e108cb37"
 }
