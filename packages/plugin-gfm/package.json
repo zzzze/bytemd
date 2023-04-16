@@ -1,6 +1,6 @@
 {
   "name": "@flicmd/bytemd-plugin-gfm",
-  "version": "1.21.2",
+  "version": "1.21.1",
   "description": "ByteMD plugin to support GFM (autolink literals, strikethrough, tables, tasklists)",
   "repository": {
     "type": "git",
@@ -35,5 +35,8 @@
   },
   "peerDependencies": {
     "@flicmd/bytemd": "^1.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

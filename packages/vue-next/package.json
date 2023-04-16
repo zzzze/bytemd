@@ -1,6 +1,6 @@
 {
   "name": "@flicmd/bytemd-vue-next",
-  "version": "1.21.2",
+  "version": "1.21.1",
   "description": "Hackable Markdown Editor and Viewer",
   "repository": {
     "type": "git",
@@ -36,5 +36,8 @@
   },
   "peerDependencies": {
     "vue": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
